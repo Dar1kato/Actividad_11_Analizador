@@ -1,0 +1,44 @@
+Necesito que generes un script de python con el objetivo de evaluar los algoritmos de búsqueda informada en grafos búsqueda, voraz (Greedy Best-First Search) y A* dentro de la arquitectura Backend con FastAPI. Aquí estan los lineamientos:
+
+* Definición de esquemas de entrada y salida (Pydantic):
+
+1. Crea un esquema de validación para autenticar el tipo de entrada que incluya:
+   1.  Matriz, lista o vector de adyacencia/con pesos del grafo a analizar. 
+   2. Origen y Destino
+   3. Límite de nodos a visitar (por defecto 80% del número de nodos totales)
+
+* Implementación del algoritmo de búsqueda voraz
+
+1. Crea el módulo greedy_search.py que implemente éste algoritmo y que considere las entradas dadas para encontrar una solución.
+2. Establece un criterio de selección/evaluación como orden, valor, otro.
+3. No puedes utilizar librerías adicionales/especializadas que implementen estos algoritmos.
+
+* Implementación del algoritmo de búsqueda estrella
+
+1. Crea el módulo star_search.py que implemente éste algoritmo y que considere las entradas dadas para encontrar una solución.
+2. Establece una función de valor f(n) = g(n) + h(n), en términos de los pesos conocidos g(n) y una heurística como la distancia euclidiana h(n) para la toma de decisiones.
+3. No puedes utilizar librerías adicionales/especializadas que implementen estos algoritmos.
+
+* Crea los siguientes endpoins:
+
+1. POST /search/greedy 
+2. POST /search/star
+
+* Salidas y pruebas
+
+1. Cada endpoint debe brindar la siguiente salida en formato JSON:
+   1. No. total de nodos visitados
+   2. Solución (True/False)
+   3. Ruta de solución
+   4. T(n)
+   5. S(n)
+
+2. Evalúa los siguientes escenarios: 3 pruebas, distintos orígenes y destinos; en los siguientes grafos.
+   1. Grafo con 10 nodos
+   2. Grafo con 25 nodos
+   3. Grafo con 50 nodos
+
+3. NOTA: Verificar la estructura de los grafos en el archivo adjunto
+
+
+Ademas de estos lineamientos, necesito que todo el archivo se genere en un solo archivo llamado main.py. Si tienes alguna duda antes de empezar, comentamela.
